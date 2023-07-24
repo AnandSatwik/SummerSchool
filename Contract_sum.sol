@@ -35,7 +35,8 @@ contract TicketingContract {
 
     
     function createTicket(uint ticketId, uint eventId) external onlyverified_owner {
-        require(tickets[ticketId].owner == address(0), "Ticket ID already exists");
+        require(tickets[ticketId].owner == address(0), "Ticket Id already exists");
+        require(tickets[ticketId].isValid == false, "Ticket Id already exists") ;
         tickets[ticketId] = Ticket(eventId, address(0), true);
     }
 
